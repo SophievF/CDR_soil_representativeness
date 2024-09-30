@@ -94,6 +94,6 @@ skimr::skim_without_charts(climate_GPP_subset)
 
 summary(climate_GPP_subset$MAT)
 
-write_csv(climate_GPP_subset, file = paste0("./data/GlobalClimateGPPSubset_1000000_", 
+write_csv(climate_GPP_subset, file = paste0("./data/global_climate_data_", 
                                             Sys.Date(), ".csv"))
 
