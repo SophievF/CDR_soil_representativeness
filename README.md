@@ -6,7 +6,7 @@ Finishing Date: September 2024
 
 
 
-This repository contains all the code to reproduce the analysis and all figures in the publication Malhotra et al (2024), Do we have representative data to estimate global soil carbon dioxide removal potential?, under review.
+This repository contains all the code produced for publication Malhotra et al (2024), Do we have representative data to estimate global soil carbon dioxide removal potential?, under review.
 
 
 
