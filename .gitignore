@@ -1,4 +1,6 @@
 
-code/.Rhistory
-data/global_climate_data_2023-11-09.csv
+*.Rhistory
 *.csv
+*.emf
+*.jpeg
+*.tiff
