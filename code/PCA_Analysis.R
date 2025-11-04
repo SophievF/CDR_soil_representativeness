@@ -17,7 +17,7 @@ data_global <- read_csv("./data/global_climate_data_2023-11-09.csv") %>%
 head(data_global)
 skimr::skim_without_charts(data_global)
 
-data_sampled <- read_csv("./data/all_data_combined_2024-09-29.csv") %>% 
+data_sampled <- read_csv("./data/all_data_combined_2025-11-04.csv") %>% 
   mutate(sampled = "yes")
 
 head(data_sampled)
@@ -42,7 +42,7 @@ plot_map_fun <- function(variable, color_points){
     geom_map(
       data = world, map = world,
       aes(long, lat, map_id = region),
-      color = "white", fill = "lightgrey", linewidth = 0.01)  +
+      color = "lightgrey", fill = "lightgrey", linewidth = 0.01)  +
     geom_point(aes(x = long_dec_deg, y = lat_dec_deg), color = color_points, 
                shape = 21, size = 0.5) +
     theme_bw(base_size = 12) +
@@ -53,7 +53,6 @@ plot_map_fun <- function(variable, color_points){
           strip.background = element_blank(),
           strip.text = element_blank()) +
     coord_sf() +
-    scale_color_manual(values = CDR_color) +
     scale_y_continuous(expand = c(0,0), breaks = seq(-40,80,40)) +
     scale_x_continuous(expand = c(0,0), breaks = seq(-150,150,75))
 }
@@ -82,7 +81,7 @@ ggsave(file = paste0("./figures/map_group_1_", Sys.Date(), ".jpeg"),
 respiration <- plot_map_fun(variable = "respiration", color_points = "#1E5664") +
   ggtitle("d) Soil respiration")
 
-microbial <- plot_map_fun(variable = "microbial biomass", color_points = "#6A269C") +
+microbial <- plot_map_fun(variable = "microbial", color_points = "#6A269C") +
   ggtitle("e) Microbial biomass")
 
 radiocarbon <- plot_map_fun(variable = "radiocarbon", color_points = "#CC1599") +
@@ -94,14 +93,14 @@ plot_2 <- annotate_figure(
                    rot = 90, size = 14)
 )
 
-ggsave(file = paste0("./figures/map_group_2_", Sys.Date(), ".svg"),
+ggsave(file = paste0("./figures/map_group_2_", Sys.Date(), ".jpeg"),
        width = 11, height = 6)
 
 # Poor representation
 maom <- plot_map_fun(variable = "MAOM", color_points = "#1E5664") +
   ggtitle("g) MAOM")
 
-necro <- plot_map_fun(variable = "microbial necromass", color_points = "#6A269C") +
+necro <- plot_map_fun(variable = "necromass", color_points = "#6A269C") +
   ggtitle("h) Microbial necromass")
 
 time <- plot_map_fun(variable = "time series", color_points = "#CC1599") +
@@ -113,7 +112,7 @@ plot_3 <- annotate_figure(
                    rot = 90, size = 14)
 )
 
-ggsave(file = paste0("./figures/map_group_3_", Sys.Date(), ".svg"),
+ggsave(file = paste0("./figures/map_group_3_", Sys.Date(), ".jpeg"),
        width = 11, height = 6)
 
 ## Prepare and perform PCA analysis
@@ -167,9 +166,9 @@ write_csv(pca_data, file = paste0("./data/PCA_output_all_data_",
 write_csv(var, file = paste0("./data/var_output_all_data_", 
                              Sys.Date(), ".csv"))
 
-# pca_data <- read_csv("./data/PCA_output_all_data_2024-09-29.csv")
+# pca_data <- read_csv("./data/PCA_output_all_data_2025-11-04.csv")
 # 
-# var <- read_csv("./data/var_output_all_data_2024-09-29.csv")
+# var <- read_csv("./data/var_output_all_data_2025-11-04.csv")
 
 ## PCA plotting
 # Avoid overlapping of labels
@@ -224,7 +223,7 @@ plot_1 <- annotate_figure(
 respiration <- plot_pca_fun(variable = "respiration", color_points = "#1E5664") +
   ggtitle("d) Soil respiration") 
 
-microbial <- plot_pca_fun(variable = "microbial biomass", color_points = "#6A269C") +
+microbial <- plot_pca_fun(variable = "biomass", color_points = "#6A269C") +
   ggtitle("e) Microbial biomass")
 
 radiocarbon <- plot_pca_fun(variable = "radiocarbon", color_points = "#CC1599") +
@@ -240,7 +239,7 @@ plot_2 <- annotate_figure(
 maom <- plot_pca_fun(variable = "MAOM", color_points = "#1E5664") +
   ggtitle("g) MAOM")
 
-necro <- plot_pca_fun(variable = "microbial necromass", color_points = "#6A269C") +
+necro <- plot_pca_fun(variable = "necromass", color_points = "#6A269C") +
   ggtitle("h) Microbial necromass")
 
 time <- plot_pca_fun(variable = "time series", color_points = "#CC1599") +
@@ -303,7 +302,7 @@ respiration <- plot_den_fun(variable = "respiration", color_line = "#1E5664",
   scale_x_continuous(limits = c(-4,8), expand = c(0,0)) +
   ggtitle("d) Soil respiration")
 
-microbial <- plot_den_fun(variable = "microbial biomass", color_line = "#6A269C",
+microbial <- plot_den_fun(variable = "biomass", color_line = "#6A269C",
                           dimension = "Dim.1") +
   scale_x_continuous(limits = c(-4,8), expand = c(0,0)) +
   ggtitle("e) Microbial biomass")
@@ -325,7 +324,7 @@ maom <- plot_den_fun(variable = "MAOM", color_line = "#1E5664",
   scale_x_continuous(limits = c(-4,8), expand = c(0,0)) +
   ggtitle("g) MAOM")
 
-necro <- plot_den_fun(variable = "microbial necromass", color_line = "#6A269C",
+necro <- plot_den_fun(variable = "necromass", color_line = "#6A269C",
                       dimension = "Dim.1") +
   scale_x_continuous(limits = c(-4,8), expand = c(0,0)) +
   ggtitle("h) Microbial necromass")

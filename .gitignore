@@ -1,6 +1,6 @@
 
 *.Rhistory
-*.csv
 *.emf
-*.jpeg
+*.svg
 *.tiff
+.Rproj.user
