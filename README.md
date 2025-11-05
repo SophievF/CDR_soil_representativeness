@@ -1,12 +1,12 @@
-Global soil representativeness analysis to assess if we have representative data to estimate global soil carbon dioxide removal potential.
+Global soil representativeness analysis to assess if we have representative data to understand soil processes.
 
 Author: Sophie von Fromm
 
-Finishing Date: September 2024
+Finishing Date: November 2025
 
 
 
-This repository contains all the code produced for publication Malhotra et al (2024), Do we have representative data to estimate global soil carbon dioxide removal potential?, under review.
+This repository contains all the code produced for publication Malhotra et al (2025), Do we have globally-representative data to understand soil processes?, Biogeochemistry.
 
 
 
