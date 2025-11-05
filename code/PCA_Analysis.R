@@ -74,6 +74,10 @@ plot_1 <- annotate_figure(
                    rot = 90, size = 14)
 )
 
+# ggsave(file = paste0("./figures/map_group_1_", Sys.Date(), ".emf"),
+#        device = {function(filename, ...) devEMF::emf(file = filename, ...)},
+#        width = 11, height = 6)
+
 ggsave(file = paste0("./figures/map_group_1_", Sys.Date(), ".jpeg"),
        width = 11, height = 6)
 
@@ -93,6 +97,10 @@ plot_2 <- annotate_figure(
                    rot = 90, size = 14)
 )
 
+# ggsave(file = paste0("./figures/map_group_2_", Sys.Date(), ".emf"),
+#        device = {function(filename, ...) devEMF::emf(file = filename, ...)},
+#        width = 11, height = 6)
+
 ggsave(file = paste0("./figures/map_group_2_", Sys.Date(), ".jpeg"),
        width = 11, height = 6)
 
@@ -111,6 +119,10 @@ plot_3 <- annotate_figure(
   left = text_grob("Poor representation", face = "bold",
                    rot = 90, size = 14)
 )
+
+# ggsave(file = paste0("./figures/map_group_3_", Sys.Date(), ".emf"),
+#        device = {function(filename, ...) devEMF::emf(file = filename, ...)},
+#        width = 11, height = 6)
 
 ggsave(file = paste0("./figures/map_group_3_", Sys.Date(), ".jpeg"),
        width = 11, height = 6)
@@ -223,7 +235,7 @@ plot_1 <- annotate_figure(
 respiration <- plot_pca_fun(variable = "respiration", color_points = "#1E5664") +
   ggtitle("d) Soil respiration") 
 
-microbial <- plot_pca_fun(variable = "biomass", color_points = "#6A269C") +
+microbial <- plot_pca_fun(variable = "microbial", color_points = "#6A269C") +
   ggtitle("e) Microbial biomass")
 
 radiocarbon <- plot_pca_fun(variable = "radiocarbon", color_points = "#CC1599") +
@@ -253,8 +265,11 @@ plot_3 <- annotate_figure(
 
 # Plot all groups together and save final figure
 ggarrange(plot_1, plot_2, plot_3, nrow = 3)
-ggsave(file = paste0("./figures/PCA_all_groups_", Sys.Date(), ".emf"),
-       device = {function(filename, ...) devEMF::emf(file = filename, ...)},
+# ggsave(file = paste0("./figures/PCA_all_groups_", Sys.Date(), ".emf"),
+#        device = {function(filename, ...) devEMF::emf(file = filename, ...)},
+#        width = 9, height = 10)
+
+ggsave(file = paste0("./figures/PCA_all_groups_", Sys.Date(), ".jpeg"),
        width = 9, height = 10)
 
 ## Density plots
@@ -302,7 +317,7 @@ respiration <- plot_den_fun(variable = "respiration", color_line = "#1E5664",
   scale_x_continuous(limits = c(-4,8), expand = c(0,0)) +
   ggtitle("d) Soil respiration")
 
-microbial <- plot_den_fun(variable = "biomass", color_line = "#6A269C",
+microbial <- plot_den_fun(variable = "microbial", color_line = "#6A269C",
                           dimension = "Dim.1") +
   scale_x_continuous(limits = c(-4,8), expand = c(0,0)) +
   ggtitle("e) Microbial biomass")
@@ -342,8 +357,11 @@ plot_3 <- annotate_figure(
 
 # Plot all groups together and save final figure
 ggarrange(plot_1, plot_2, plot_3, nrow = 3)
-ggsave(file = paste0("./figures/Density_Dim.1_all_groups_", Sys.Date(), ".emf"),
-       device = {function(filename, ...) devEMF::emf(file = filename, ...)},
+# ggsave(file = paste0("./figures/Density_Dim.1_all_groups_", Sys.Date(), ".emf"),
+#        device = {function(filename, ...) devEMF::emf(file = filename, ...)},
+#        width = 9, height = 10)
+
+ggsave(file = paste0("./figures/Density_Dim.1_all_groups_", Sys.Date(), ".jpeg"),
        width = 9, height = 10)
 
 ## Plot data by groups and for dimension 2 and arrange figures
@@ -375,7 +393,7 @@ respiration <- plot_den_fun(variable = "respiration", color_line = "#1E5664",
   scale_x_continuous(limits = c(-7,6), expand = c(0,0)) +
   ggtitle("d) Soil respiration")
 
-microbial <- plot_den_fun(variable = "microbial biomass", color_line = "#6A269C",
+microbial <- plot_den_fun(variable = "microbial", color_line = "#6A269C",
                           dimension = "Dim.2") +
   scale_x_continuous(limits = c(-7,6), expand = c(0,0)) +
   ggtitle("e) Microbial biomass")
@@ -397,7 +415,7 @@ maom <- plot_den_fun(variable = "MAOM", color_line = "#1E5664",
   scale_x_continuous(limits = c(-7,6), expand = c(0,0)) +
   ggtitle("g) MAOM")
 
-necro <- plot_den_fun(variable = "microbial necromass", color_line = "#6A269C",
+necro <- plot_den_fun(variable = "necromass", color_line = "#6A269C",
                       dimension = "Dim.2") +
   scale_x_continuous(limits = c(-7,6), expand = c(0,0)) +
   ggtitle("h) Microbial ecromass")
@@ -415,10 +433,11 @@ plot_3 <- annotate_figure(
 
 # Plot all groups together and save final figure
 ggarrange(plot_1, plot_2, plot_3, nrow = 3)
-ggsave(file = paste0("./figures/Density_Dim.2_all_groups_", Sys.Date(), ".tiff"),
-       width = 9, height = 10)
 
-ggsave(file = paste0("./figures/Density_Dim.2_all_groups_", Sys.Date(), ".emf"),
-       device = {function(filename, ...) devEMF::emf(file = filename, ...)},
+# ggsave(file = paste0("./figures/Density_Dim.2_all_groups_", Sys.Date(), ".emf"),
+#        device = {function(filename, ...) devEMF::emf(file = filename, ...)},
+#        width = 9, height = 10)
+
+ggsave(file = paste0("./figures/Density_Dim.2_all_groups_", Sys.Date(), ".jpeg"),
        width = 9, height = 10)
 
